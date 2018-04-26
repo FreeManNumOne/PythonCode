@@ -15,10 +15,10 @@ import RedisClientKill
 class RedisMonitor(object):
     #Redis服务器连接信息
     def __init__(self):
-        self.RedisServerPools=['172.19.69.224','172.19.69.203','172.19.69.204']
+        self.RedisServerPools=['127.0.0.1']
         self.RedisPort=6379
         self.RedisSentinelPort=26379
-        self.RedisPassWord='namibankredisPord8ik,>LO(0p;/'
+        self.RedisPassWord='123'
 
     #执行redis命令并返回结果
     def RedisCmd(self,command):
