@@ -69,8 +69,5 @@ if __name__ == "__main__":
     SystemUser=sys.argv[2]
     SystemPassword=sys.argv[3]
 
-    MysqlBackup('192.168.200.5','namibank','namibank123','base','3306','/opt/databasebak')
-    MysqlBackup('192.168.200.5', 'namibank', 'namibank123', 'risk', '3306', '/opt/databasebak')
-    MysqlBackup('192.168.200.5', 'namibank', 'namibank123', 'mall', '3306', '/opt/databasebak')
-    MysqlBackup('192.168.200.5', 'namibank', 'namibank123', 'gate', '3306', '/opt/databasebak')
-    MysqlRecovery(TarGetIP,SystemUser,SystemPassword,22,'namibank','base','3306','/data/databasebak')
+    MysqlBackup('127.0.0.1','test','test123','test','3306','/opt/databasebak')
+    MysqlRecovery(TarGetIP,SystemUser,SystemPassword,22,'test','base','3306','/data/databasebak')
