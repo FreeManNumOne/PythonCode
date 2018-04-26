@@ -1,0 +1,33 @@
+#FireWall  是一个根据配置文件来开通和关闭防火墙的策略的脚本
+目录结构为：
+/FireWall
+-->conf 为配置文件目录
+-->logs 为日志记录目录
+
+示例：
+配置文件如下：
+
+配置文件路径：
+/FireWall/conf/FireWall.conf
+配置文件示例：
+#源IP  目标IP或者列表  到期时间
+192.168.200.235  jdlist 20170920
+192.168.200.233  192.168.200.213 20170920
+
+执行脚本
+python /FireWall/FireWal.py
+
+查看日志：
+[root@test-gateway ~]# cat /FireWall/logs/FireWallRecord.log
+Tue, 19 Sep 2017 17:14:28 FireWall.py[line:16] INFO 策略开通成功 from 192.168.200.211 to 223.252.216.178
+Tue, 19 Sep 2017 17:30:25 FireWall.py[line:16] INFO 策略删除成功 from 192.168.200.211 to 223.252.216.178
+[root@test-gateway ~]#
+
+#注意事项
+1.如果碰到有域名访问控制需要在添加域名时按时xxxlist 来命名必须包含list这个字符串
+2.配置文件如果有相同的开通规则过期时间不同，会存在有时有能访问时不能访问的问题存在，添加时要注意查看一下是否有相同的规则存在。
+
+
+#测试事项
+如果有多行重复的处理逻辑和删除逻辑
+
