@@ -166,7 +166,7 @@ class RedisMonitor(object):
     #调用外部微信通道接口发送告警信息
     def WexixinSendMess(self,title,context):
         access_token = get_redis_token('http_check_token')
-        user = 'daijh|yangke|yongjianzhuang|sunweiqiang|zhaohe'
+        user = 'test1|user2|user3'
         payload = qy_wx_msg(title, context, user)
         reload(sys)
         sys.setdefaultencoding('utf8')
