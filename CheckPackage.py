@@ -37,7 +37,7 @@ def Main(FileName):
         SourceMd5Code=i.split()[2]
         print (PackageName)
         print (Package)
-        password = Passwd2.prpcrypt('nb-www.vnbigkeys')
+        password = Passwd2.prpcrypt('keys')
         password2 = password.decrypt('625787c88d24455833a44d07a47cc12b8d041a8d2b5bc1328431be020e7e456e')
         TargetMd5Code = CommandRun(ip,Package,PackageName,password2)
         Done=Md5Check(SourceMd5Code,TargetMd5Code)
