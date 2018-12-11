@@ -32,7 +32,7 @@ class RedisClientKills(object):
 if __name__ == "__main__":
     print("""
              python RedisClientKill.py redis服务器IP  Redis服务端口 Redis密码 传入的参数kill或者query
-             示例： python RedisClientKill.py 192.168.200.195 6379 namibankredis (kill or query)
+             示例： python RedisClientKill.py 192.168.200.195 6379 TestPasssword (kill or query)
             """)
 
     RedisServerIp = sys.argv[1]
