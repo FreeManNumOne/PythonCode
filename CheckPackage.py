@@ -6,8 +6,6 @@ import  paramiko
 import  sys
 import  Passwd2
 
-
-
 def CommandRun(Host,Package,PackageName,password):
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
