@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-#auth Yong.jianzhuang
+#auth 
 #version 0.1
 #date 20181212
-#mail: Yong.jianzhuang@dr-elephant.com
+#mail: 
 
 import  sys
 import  logs
@@ -213,7 +213,7 @@ if __name__ == '__main__':
     PackageName= sys.argv[2]
     ServiceName = '-'.join(PackageName.split("-")[:-1])
     UserName = 'root'
-    PassWord='freeman'
+    PassWord='xxxxxx'
     for i in HostIp.split(":"):
         #print(i)
         HostIp = i
