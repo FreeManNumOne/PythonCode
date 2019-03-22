@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-#auth Yong.jianzhuang
+#auth 
 #version 0.1
 #date 20190220
-#mail: Yong.jianzhuang@dr-elephant.com
+#mail: 
 
 import  urllib2
 import  json
