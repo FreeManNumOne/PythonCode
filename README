@@ -1,33 +1,21 @@
-#FireWall  是一个根据配置文件来开通和关闭防火墙的策略的脚本
-目录结构为：
-/FireWall
--->conf 为配置文件目录
--->logs 为日志记录目录
+- 优化的地方可以将代码重复使用的数据能过类方式抽离出来
+- 服务第一次发布会提示备份失败
+- 加一个目标服务jar包存不存的判断
+- 这个主要是实现传参进来实现大象JAR包发布功能
+- 这个python脚本可以跳板机发布内网的jar包服务
+- 通过传入IP和打出来的jar包名字做为参数
+- 服务启停方式依赖python supervisor在管理java进程
+- 注意服务名字是截取jar版本号前面一段做supervisor里面的管理的名字
+- 注意服务名字在服务器上存放在/data/服务名字为目录的一个结构下面
 
+依赖的第三方包
+yum install python-paramiko
+yum install requests
 示例：
-配置文件如下：
-
-配置文件路径：
-/FireWall/conf/FireWall.conf
-配置文件示例：
-#源IP  目标IP或者列表  到期时间
-192.168.200.235  jdlist 20170920
-192.168.200.233  192.168.200.213 20170920
-
-执行脚本
-python /FireWall/FireWal.py
-
-查看日志：
-[root@test-gateway ~]# cat /FireWall/logs/FireWallRecord.log
-Tue, 19 Sep 2017 17:14:28 FireWall.py[line:16] INFO 策略开通成功 from 192.168.200.211 to 223.252.216.178
-Tue, 19 Sep 2017 17:30:25 FireWall.py[line:16] INFO 策略删除成功 from 192.168.200.211 to 223.252.216.178
-[root@test-gateway ~]#
-
-#注意事项
-1.如果碰到有域名访问控制需要在添加域名时按时xxxlist 来命名必须包含list这个字符串
-2.配置文件如果有相同的开通规则过期时间不同，会存在有时有能访问时不能访问的问题存在，添加时要注意查看一下是否有相同的规则存在。
+    python main.py  192.168.186.128 elephantinterface-business-supplier-1.0.1.jar
+多台机器发布示例
+    python main.py  192.168.186.128:192.168.186.129 elephantinterface-business-supplier-1.0.1.jar
 
 
-#测试事项
-如果有多行重复的处理逻辑和删除逻辑
-
+平滑下线Curl信息
+http://localhost:8761/eureka/apps/SERVICE-HI/localhost:service-hi:8888
