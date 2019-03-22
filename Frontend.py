@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 #-*-coding:utf-8-*-
-#auth Yong.jianzhuang
 #version 0.1
 #date 20181220
-#mail: Yong.jianzhuang@dr-elephant.com
+#mail:
 
 import  logs
 import  main
