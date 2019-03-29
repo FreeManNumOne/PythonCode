@@ -1,0 +1,9 @@
+data = ['a','b','c','d','a','b']
+done = dict({})
+
+for i in data:
+    if done.get(i):
+        done[i] += 1
+    else:
+        done[i] = 1
+print(done)
