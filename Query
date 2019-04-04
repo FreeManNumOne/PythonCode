@@ -1,1 +1,45 @@
 
+#!/usr/bin/env python
+# encoding=utf8
+# -*- coding: utf-8 -*-
+
+import MySQLdb
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+import  csv
+import  mail
+import  codecs
+import  datetime
+
+
+
+TitleData={'test':['中文1','中文2'],'test2':['a1','b2','b3']}
+SqlData={'test1':"select * from test "}
+def MysqlConnect(sql,CsvName,CsvTemp):
+      db = MySQLdb.connect("127.0.0.1", "test", "test123", "test", charset='utf8' )
+      sql = SqlData.get(sql)
+      print(sql)
+      cursor = db.cursor()
+      cursor.execute(sql)
+      data = cursor.fetchall()
+      First=1
+      for i in data:
+              print(i)
+              with open(CsvName, 'a') as csvfile:
+                  csvfile.write(codecs.BOM_UTF8)
+                  spamwriter = csv.writer(csvfile, dialect='excel')
+                  if First == 1 :
+                      spamwriter.writerow(TitleData.get(CsvTemp))
+                      First=2
+                  spamwriter.writerow(i)
+      db.close()
+      mail.Sendmail(CsvName)
+
+if __name__ == "__main__":
+    sql = sys.argv[1]
+    CsvName1 = sys.argv[2]
+    CsvTemp = sys.argv[3]
+    DatetimeNowTime = datetime.datetime.now().strftime('%Y-%m-%d-%H:%M:%S.xls')
+    CsvName= '/data/Python/Report/ReportFile/%s-%s'%(CsvName1,DatetimeNowTime)
+    MysqlConnect(sql,CsvName,CsvTemp)
