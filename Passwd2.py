@@ -15,6 +15,6 @@ class prpcrypt():
         return plain_text.rstrip('\0')
  
 if __name__ == '__main__':
-    pc = prpcrypt('nb-www.vnbigkeys')
+    pc = prpcrypt('xxxxxxx')
     d = pc.decrypt('625787c88d24455833a44d07a47cc12b8d041a8d2b5bc1328431be020e7e456e')                  
     print d
